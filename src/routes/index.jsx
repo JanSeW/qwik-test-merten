@@ -1,5 +1,5 @@
 import { component$, Resource } from "@builder.io/qwik";
-import { DocumentHead, useEndpoint } from "@builder.io/qwik-city";
+import { useEndpoint } from "@builder.io/qwik-city";
 
 import Image from "~/components/Image.jsx";
 import InhaltKopfbereich from "~/components/InhaltKopfbereich.jsx";
