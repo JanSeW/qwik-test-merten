@@ -48,13 +48,13 @@ export default function InhaltKopfbereich({ data }) {
                 <div className="absolute h-[90%] right-0 bg-lightGray w-[2px]"></div>
               )}
               <div className="imageContainer relative w-[50px]">
-                <img
+                {/*  <img
                   src={data["image_" + key].src}
                   alt="media_references"
                   fetchpriority="low"
                   decoding="async"
                   loading="lazy"
-                />
+                /> */}
               </div>
               <p className="text-darkBlue flow-text font-main-regular mt-5">
                 {data["textfield_" + key].content}
