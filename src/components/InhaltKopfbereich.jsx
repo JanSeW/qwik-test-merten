@@ -1,6 +1,7 @@
+import { component$ } from "@builder.io/qwik";
 import FilledButton from "./FilledButton.jsx";
 
-export default function InhaltKopfbereich({ data }) {
+export default component$(({ data }) => {
   return (
     <main class="bg-white w-screen main-padding vertical-padding flex md:flex-row flex-col font-sec-regular md:gap-x-10 xl:gap-x-40">
       <div class="flex flex-col w-full md:w-1/2">
@@ -67,4 +68,4 @@ export default function InhaltKopfbereich({ data }) {
       </div>
     </main>
   );
-}
+});
