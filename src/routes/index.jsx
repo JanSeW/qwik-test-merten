@@ -9,6 +9,7 @@ import Checkliste from "~/components/Checkliste.jsx";
 import Footer from "~/components/Footer.jsx";
 import InhaltsBlock from "~/components/InhaltsBlock.jsx";
 import VideoWidget from "~/components/VideoWidget.jsx";
+import CookieConsent from "~/components/CookieConsent";
 
 import { supabase } from "../utils/index";
 
@@ -21,6 +22,7 @@ export const ComponentStore = {
   Footer: Footer,
   InhaltsBlock: InhaltsBlock,
   VideoWidget: VideoWidget,
+  CookieConsent: CookieConsent,
 };
 
 export const onGet = async () => {
@@ -50,7 +52,8 @@ export default component$(() => {
         onRejected={() => <div>Error</div>}
         onResolved={(page) => (
           <main>
-            {/*  <pre>{JSON.stringify(page, null, 2)}</pre> */}
+            {/*   <pre>{JSON.stringify(page, null, 2)}</pre> */}
+            <CookieConsent consent={page.WebsiteId.ConfigId.CookieConsent} />
             <Image data={page.Components[0].fields} />
             <InhaltKopfbereich data={page.Components[1].fields} />
             <AngebotsWidget data={page.Components[2].fields} />
