@@ -31,10 +31,10 @@ export const onGet = async () => {
     .single();
 
   let pageAPI = data;
-  /* for (let i = 0; i < pageAPI.Components.length; i++) {
+  for (let i = 0; i < pageAPI.Components.length; i++) {
     console.log(ComponentStore[pageAPI.Components[i].name]);
     //pageAPI.Components[i].render = ComponentStore[pageAPI.Components[i].name];
-  } */
+  }
 
   return pageAPI;
 };
