@@ -1,10 +1,11 @@
 export default function Image({ data }) {
   return (
-    <main className="w-screen bg-white relative">
-      <div className="imageContainer w-full relative bg-white">
+    <main class="w-screen bg-white relative">
+      <div class="imageContainer w-full relative bg-white">
         <img
-          src={true ? data.image_0.src : data.image_1.src}
-          alt="media_references"
+          src={data.image_0.src}
+          alt="Merten Immobilien Header"
+          fetchpriority="high"
         />
       </div>
     </main>
