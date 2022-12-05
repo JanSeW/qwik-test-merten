@@ -54,8 +54,8 @@ export default component$(() => {
           <main>
             {/*   <pre>{JSON.stringify(page, null, 2)}</pre> */}
             <CookieConsent consent={page.WebsiteId.ConfigId.CookieConsent} />
-            <Image data={page.Components[0].fields} />
             <InhaltKopfbereich data={page.Components[1].fields} />
+            <Image data={page.Components[0].fields} />
             <AngebotsWidget data={page.Components[2].fields} />
             <InhaltsBlock data={page.Components[3].fields} />
             <Checkliste data={page.Components[4].fields} />
