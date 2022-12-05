@@ -1,5 +1,5 @@
 import { component$, Resource } from "@builder.io/qwik";
-import { useEndpoint } from "@builder.io/qwik-city";
+import { DocumentHead, useEndpoint } from "@builder.io/qwik-city";
 
 import Image from "~/components/Image.jsx";
 import InhaltKopfbereich from "~/components/InhaltKopfbereich.jsx";
@@ -21,16 +21,6 @@ export const ComponentStore = {
   Footer: Footer,
   InhaltsBlock: InhaltsBlock,
   VideoWidget: VideoWidget,
-};
-
-export const DocumentHead = {
-  title: "Supernice Title",
-  meta: [
-    {
-      name: "description",
-      content: "Ambitive site description",
-    },
-  ],
 };
 
 export const onGet = async () => {
@@ -76,3 +66,13 @@ export default component$(() => {
     </main>
   );
 });
+
+export const head = {
+  title: "Welcome to Qwik",
+  meta: [
+    {
+      name: "description",
+      content: "Qwik site description",
+    },
+  ],
+};
