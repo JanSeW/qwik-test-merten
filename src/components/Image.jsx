@@ -8,6 +8,7 @@ export default function Image({ data }) {
           width={390}
           height={390}
           decoding="async"
+          fetchpriority="high"
         />
       </div>
     </main>
