@@ -1,6 +1,7 @@
 import FilledButton from "./FilledButton.jsx";
 
 export default function InhaltKopfbereich({ data }) {
+  return <></>;
   return (
     <main className="bg-white w-screen main-padding vertical-padding flex md:flex-row flex-col font-sec-regular md:gap-x-10 xl:gap-x-40">
       <div className="flex flex-col w-full md:w-1/2">
