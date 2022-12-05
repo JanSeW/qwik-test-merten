@@ -23,6 +23,16 @@ export const ComponentStore = {
   VideoWidget: VideoWidget,
 };
 
+export const DocumentHead = {
+  title: "Supernice Title",
+  meta: [
+    {
+      name: "description",
+      content: "Ambitive site description",
+    },
+  ],
+};
+
 export const onGet = async () => {
   const { data, error } = await supabase
     .from("Pages")
