@@ -1,6 +1,6 @@
 export default function Image({ data }) {
   return (
-    <main class="w-screen bg-white relative h-[390px]">
+    <main class="w-screen bg-white relative h-[361px]">
       <div class="imageContainer w-full relative bg-white">
         <img
           src={data.image_0.src}
