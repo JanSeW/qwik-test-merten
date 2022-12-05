@@ -1,14 +1,14 @@
 export default function VideoWidgte({ data }) {
   return <></>;
   return (
-    <main className="main-padding py-10 bg-lightGray font-secondary-regular">
-      <data.headline_0.type className="font-sec-regular  font-bold text-darkBlue subline-text">
+    <main class="main-padding py-10 bg-lightGray font-secondary-regular">
+      <data.headline_0.type class="font-sec-regular  font-bold text-darkBlue subline-text">
         {data.headline_0.content}
       </data.headline_0.type>
 
-      <div className="flex flex-col md:flex-row gap-x-5 justify-center">
-        <div className="w-full md:w-1/2 flex flex-col">
-          <p className="text-darkBlue subline-text  font-thin my-3">
+      <div class="flex flex-col md:flex-row gap-x-5 justify-center">
+        <div class="w-full md:w-1/2 flex flex-col">
+          <p class="text-darkBlue subline-text  font-thin my-3">
             {data.textfield_0.content}
           </p>
 
@@ -23,9 +23,9 @@ export default function VideoWidgte({ data }) {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="pt-[10%] md:pt-[30%]"></div>
-        <div className="w-full md:w-1/2 flex flex-col">
-          <p className="text-darkBlue subline-text  font-thin my-3">
+        <div class="pt-[10%] md:pt-[30%]"></div>
+        <div class="w-full md:w-1/2 flex flex-col">
+          <p class="text-darkBlue subline-text  font-thin my-3">
             {data.textfield_1.content}
           </p>
 

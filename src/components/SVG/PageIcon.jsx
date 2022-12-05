@@ -7,7 +7,7 @@ export default function PageIcon({ additionalCSS }) {
       width="50"
       height="50"
       viewBox="0 0 50 50"
-      className={additionalCSS + " cursor-pointer"}
+      class={additionalCSS + " cursor-pointer"}
     >
       <g
         id="Fill"

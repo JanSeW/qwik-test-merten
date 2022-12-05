@@ -71,20 +71,18 @@ export default function AngebotsWidget({ data, pos, small }) {
 
   return (
     render && (
-      <main className="main-padding vertical-padding bg-lightGray flex flex-col items-center justify-center font-sec-regular">
+      <main class="main-padding vertical-padding bg-lightGray flex flex-col items-center justify-center font-sec-regular">
         {data.headline_variant ? (
-          <data.headline_variant className="text-darkBlue head-text underline font-semibold">
+          <data.headline_variant class="text-darkBlue head-text underline font-semibold">
             {data.headline}
           </data.headline_variant>
         ) : (
-          <p className="text-darkBlue head-text  font-semibold">
-            {data.headline}
-          </p>
+          <p class="text-darkBlue head-text  font-semibold">{data.headline}</p>
         )}
-        <div className="flex flex-col justify-center md:flex-row mt-[2rem] md:mt-[3rem] w-full gap-x-[1px] gap-y-[2px]">
+        <div class="flex flex-col justify-center md:flex-row mt-[2rem] md:mt-[3rem] w-full gap-x-[1px] gap-y-[2px]">
           {[...Array(4)].map((tab, key) => (
             <button
-              className={`${activeKey === key ? "bg-white" : "bg-gray"} ${
+              class={`${activeKey === key ? "bg-white" : "bg-gray"} ${
                 key === 0
                   ? "rounded-t-lg md:rounded-t-none md:rounded-tl-lg"
                   : key === 3 &&
@@ -109,33 +107,33 @@ export default function AngebotsWidget({ data, pos, small }) {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 mt-11 font-sec-regular">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7 mt-11 font-sec-regular">
           {estateList.map(
             (object, key) =>
               !object.refObject &&
               (activeSection === object.type || !activeSection) && (
                 <div
                   key={key}
-                  className={`${
+                  class={`${
                     small ? "w-full bg-white p-2" : "w-full"
                   } cursor-pointer hover:-translate-y-1 duration-300 offer-detail`}
                 >
                   <a
                     href={"/expose/" + object.id + "/" + slugify(object.title)}
                   >
-                    <div className="pt-[56.25%] bg-cover bg-center relative w-full overflow-hidden">
+                    <div class="pt-[56.25%] bg-cover bg-center relative w-full overflow-hidden">
                       {object.image ? (
-                        <div className="imageContainer absolute w-full left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+                        <div class="imageContainer absolute w-full left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
                           <Image
                             src={object.image}
                             alt="media_references"
                             layout="fill"
                             objectFit="contain"
-                            className="image_"
+                            class="image_"
                           />
                         </div>
                       ) : (
-                        <div className="imageContainer absolute w-full left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
+                        <div class="imageContainer absolute w-full left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2">
                           <Image
                             src={
                               "https://import-api.merten-immobilien.de/assets/Platzhalter.webp"
@@ -143,13 +141,13 @@ export default function AngebotsWidget({ data, pos, small }) {
                             alt="media_references"
                             layout="fill"
                             objectFit="contain"
-                            className="image_"
+                            class="image_"
                           />
                         </div>
                       )}
 
                       <div
-                        className={`absolute px-4 top-2.5 left-0 text-white font-sec-regular text-[12px] py-1 rounded-r-md
+                        class={`absolute px-4 top-2.5 left-0 text-white font-sec-regular text-[12px] py-1 rounded-r-md
               ${
                 object.type === "KAUF"
                   ? "bg-orange"
@@ -168,26 +166,26 @@ export default function AngebotsWidget({ data, pos, small }) {
                         </p>
                       </div>
                     </div>
-                    <div className="w-full p-7 bg-white flex flex-col gap-y-3">
+                    <div class="w-full p-7 bg-white flex flex-col gap-y-3">
                       <p
-                        className="ell-text-2  text-darkBlue font-bold flow-text h-12 c6:h-16"
+                        class="ell-text-2  text-darkBlue font-bold flow-text h-12 c6:h-16"
                         style={{ lineHeight: "1.4rem" }}
                       >
                         {object.title}
                       </p>
-                      <div className="flex flex-row items-center">
-                        <FaMapMarkerAlt className="text-green" />
-                        <span className="ml-2  text-black font-medium flow-text">
+                      <div class="flex flex-row items-center">
+                        <FaMapMarkerAlt class="text-green" />
+                        <span class="ml-2  text-black font-medium flow-text">
                           {object.address}
                         </span>
                       </div>
-                      <div className="flex flex-row items-center gap-x-1">
+                      <div class="flex flex-row items-center gap-x-1">
                         {/* Fläche Wohnraum */}
                         {object.living_space && (
                           <>
                             <SquareIcon color="green" />
                             <span
-                              className="mx-2 whitespace-nowrap font-sec-regular text-darkBlue font-bold font-regular flow-text
+                              class="mx-2 whitespace-nowrap font-sec-regular text-darkBlue font-bold font-regular flow-text
                                        border-r border-lightGray pr-2"
                             >
                               {object.living_space} m²
@@ -199,7 +197,7 @@ export default function AngebotsWidget({ data, pos, small }) {
                           <>
                             <PlaceIcon color="green" />
                             <span
-                              className="mx-2 font-sec-regular text-darkBlue font-bold font-regular flow-text
+                              class="mx-2 font-sec-regular text-darkBlue font-bold font-regular flow-text
                                        border-r border-lightGray pr-2"
                             >
                               {object.land} m²
@@ -211,7 +209,7 @@ export default function AngebotsWidget({ data, pos, small }) {
                           <>
                             <SquareIcon color="green" />
                             <span
-                              className="mx-2 whitespace-nowrap font-sec-regular text-darkBlue font-bold font-regular flow-text
+                              class="mx-2 whitespace-nowrap font-sec-regular text-darkBlue font-bold font-regular flow-text
                                        border-r border-lightGray pr-2"
                             >
                               {object.square_use} m²
@@ -222,14 +220,14 @@ export default function AngebotsWidget({ data, pos, small }) {
                         {object.rooms && (
                           <>
                             <BedIcon color="green" />
-                            <span className="mx-2 pr-2 whitespace-nowrap border-r border-lightGray font-sec-regular text-darkBlue font-bold font-regular flow-text">
+                            <span class="mx-2 pr-2 whitespace-nowrap border-r border-lightGray font-sec-regular text-darkBlue font-bold font-regular flow-text">
                               {object.rooms} Zi.
                             </span>
                           </>
                         )}
                         {/* Preis */}
                         <span
-                          className="font-sec-regular text-darkBlue font-bold font-regular flow-text 
+                          class="font-sec-regular text-darkBlue font-bold font-regular flow-text 
                                     border-lightGray"
                         >
                           {object.costs && object.costs + "€"}
@@ -241,7 +239,7 @@ export default function AngebotsWidget({ data, pos, small }) {
               )
           )}
         </div>
-        {/*  <div className="flex flex-row justify-center items-center w-full mt-8 gap-x-5">
+        {/*  <div class="flex flex-row justify-center items-center w-full mt-8 gap-x-5">
           <PageIcon />
           <PageIcon additionalCSS="scale-[-1]" />
         </div> */}

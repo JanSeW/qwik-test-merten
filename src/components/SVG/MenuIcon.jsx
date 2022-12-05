@@ -5,7 +5,7 @@ export default function MenuIcon({ additionalCSS }) {
       width="28.433"
       height="18.955"
       viewBox="0 0 28.433 18.955"
-      className={additionalCSS}
+      class={additionalCSS}
     >
       <path
         id="Menu"

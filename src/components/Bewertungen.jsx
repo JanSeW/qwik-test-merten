@@ -15,22 +15,22 @@ export default function Bewertungen({ data }) {
     getRatings();
   }, []);
   return (
-    <main className="main-padding vertical-padding flex flex-col items-start text-darkBlue bg-white relative font-sec-regular">
-      <div className="absolute w-full h-1/4 bottom-0 left-0"></div>
-      <p className="text-darkBlue head-text underline font-semibold">
+    <main class="main-padding vertical-padding flex flex-col items-start text-darkBlue bg-white relative font-sec-regular">
+      <div class="absolute w-full h-1/4 bottom-0 left-0"></div>
+      <p class="text-darkBlue head-text underline font-semibold">
         Google Bewertungen - das sagen unsere Kunden
       </p>
-      <p className="text-darkBlue flow-text font-secondary-regular  font-medium my-10 flow-text md:max-w-[50vw]">
+      <p class="text-darkBlue flow-text font-secondary-regular  font-medium my-10 flow-text md:max-w-[50vw]">
         Sie sind mit unserer Dienstleistung als Immobilienmakler zufrieden? Dann
         hinterlassen Sie uns doch gerne eine Bewertung auf Google. Wir freuen
         uns über Ihr Feedback. Vielen Dank, Ihr Team der Ronald Merten
         Immobilien GmbH!
       </p>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mt-2 gap-14">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 mt-2 gap-14">
         {rating.map((item, key) => (
-          <div key={key} className="w-full flex flex-col items-center">
-            <div className="p-10 bg-lightGray text-center pb-10 flex-grow relative">
-              <div className="imageContainer relative w-[40px] c6:w-[70px] mx-auto -top-3">
+          <div key={key} class="w-full flex flex-col items-center">
+            <div class="p-10 bg-lightGray text-center pb-10 flex-grow relative">
+              <div class="imageContainer relative w-[40px] c6:w-[70px] mx-auto -top-3">
                 <Image
                   src={
                     "https://import-api.merten-immobilien.de/assets/RMI_Google.svg"
@@ -38,26 +38,26 @@ export default function Bewertungen({ data }) {
                   alt="media_references"
                   layout="fill"
                   objectFit="contain"
-                  className="image_"
+                  class="image_"
                 />
               </div>
-              <p className="text-center subline-text font-bold ell-text-1 mb-6">
+              <p class="text-center subline-text font-bold ell-text-1 mb-6">
                 {item.author_name}
               </p>
-              <div className="flex flex-row items-center w-full justify-center gap-x-5 subline-text text-orange">
+              <div class="flex flex-row items-center w-full justify-center gap-x-5 subline-text text-orange">
                 {[...Array(item.rating)].map((i, key) => (
                   <RiStarFill key={key} />
                 ))}
               </div>
-              <p className="flow-text font-bold  my-5">{item.rating} Sterne</p>
-              <p className="flow-text font-main-regular ell-text-7 overflow-hidden mb-5">
+              <p class="flow-text font-bold  my-5">{item.rating} Sterne</p>
+              <p class="flow-text font-main-regular ell-text-7 overflow-hidden mb-5">
                 {item.text}
               </p>
               <a
                 href={item.author_url}
                 target="_blank"
                 rel="noreferrer"
-                className="font-bold cursor-pointer absolute left-1/2 -translate-x-1/2 bottom-5"
+                class="font-bold cursor-pointer absolute left-1/2 -translate-x-1/2 bottom-5"
               >
                 mehr lesen
               </a>

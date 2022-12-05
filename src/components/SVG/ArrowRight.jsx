@@ -5,7 +5,7 @@ export default function ArrorRight({ color, additionalCSS }) {
       width="5.557"
       height="9"
       viewBox="0 0 5.557 9"
-      className={additionalCSS}
+      class={additionalCSS}
     >
       <path
         id="Icon"
