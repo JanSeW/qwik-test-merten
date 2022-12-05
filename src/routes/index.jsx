@@ -53,15 +53,31 @@ export default component$(() => {
         onResolved={(page) => (
           <main>
             {/*   <pre>{JSON.stringify(page, null, 2)}</pre> */}
-
-            <InhaltKopfbereich data={page.Components[1].fields} />
+            {page.Components.map((Component, key) =>
+              Component.name === "InhaltKopfbereich" ? (
+                <InhaltKopfbereich data={Component.fields} />
+              ) : Component.name === "Image" ? (
+                <Image data={Component.fields} />
+              ) : Component.name === "AngebotsWidget" ? (
+                <AngebotsWidget data={Component.fields} />
+              ) : Component.name === "InhaltsBlock" ? (
+                <InhaltsBlock data={Component.fields} />
+              ) : Component.name === "Checkliste" ? (
+                <Checkliste data={Component.fields} />
+              ) : Component.name === "Bewertungen" ? (
+                <Bewertungen data={Component.fields} />
+              ) : (
+                <></>
+              )
+            )}
+            {/*  <InhaltKopfbereich data={page.Components[1].fields} />
             <Image data={page.Components[0].fields} />
             <AngebotsWidget data={page.Components[2].fields} />
             <InhaltsBlock data={page.Components[3].fields} />
             <Checkliste data={page.Components[4].fields} />
             <Bewertungen data={page.Components[5].fields} />
             <VideoWidget data={page.Components[6].fields} />
-            <InhaltsBlock data={page.Components[7].fields} />
+            <InhaltsBlock data={page.Components[7].fields} /> */}
             {/* <Footer data={page.Components[8].fields} /> */}
           </main>
         )}
