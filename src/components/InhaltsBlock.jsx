@@ -149,9 +149,9 @@ export default function InhaltsBlock({ data }) {
                       : "https://import-api.merten-immobilien.de/assets/kontaktbild_merten_immobilien_team.webp"
                   }
                   alt="media_references"
-                  layout="fill"
-                  objectFit="contain"
-                  className="image_"
+                  fetchpriority="low"
+                  decoding="async"
+                  loading="lazy"
                 />
               </div>
             )}

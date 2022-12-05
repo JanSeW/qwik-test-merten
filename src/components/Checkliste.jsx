@@ -77,10 +77,10 @@ export default function Checkliste({ data }) {
         >
           <img
             src={data.image_0.src}
-            alt="media_references"
-            layout="fill"
-            objectFit="contain"
-            className="image_"
+            alt="Ceckliste Bild"
+            fetchpriority="low"
+            decoding="async"
+            loading="lazy"
           />
         </div>
       </main>

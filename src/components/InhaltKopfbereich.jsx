@@ -52,15 +52,9 @@ export default function InhaltKopfbereich({ data }) {
                 <img
                   src={data["image_" + key].src}
                   alt="media_references"
-                  layout="fill"
-                  objectFit="contain"
-                  className="image_"
-                  blurDataURL={
-                    "`/_next/image?url=" +
-                    data["image_" + key].src +
-                    "&w=16&q=1"
-                  }
-                  placeholder="blur"
+                  fetchpriority="low"
+                  decoding="async"
+                  loading="lazy"
                 />
               </div>
               <p className="text-darkBlue flow-text font-main-regular mt-5">
