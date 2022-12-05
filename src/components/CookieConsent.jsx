@@ -118,7 +118,7 @@ export default function CookieConsent({ consent }) {
       {consent.active && showConsent && (
         <section
           id="cookie-consent"
-          className="z-[99] px-5 lg:px-0 fixed top-0 left-0 h-screen w-screen flex flex-col bg-[#00000080] items-center justify-end pb-20"
+          className="z-[99] px-5 lg:px-0 fixed top-0 left-0 h-screen w-screen flex flex-col bg-[#00000080] items-center justify-end pb-72"
         >
           <div
             className={`duration-300 relative z-10 h-[500px] overflow-hidden flex-col flex justify-end`}
