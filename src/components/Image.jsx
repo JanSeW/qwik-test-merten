@@ -7,6 +7,7 @@ export default function Image({ data }) {
           alt="Merten Immobilien Header"
           width={390}
           height={390}
+          decoding="async"
         />
       </div>
     </main>
