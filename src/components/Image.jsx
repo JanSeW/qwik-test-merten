@@ -6,6 +6,8 @@ export default function Image({ data }) {
           src={data.image_0.src}
           alt="Merten Immobilien Header"
           fetchpriority="high"
+          width={390}
+          height="100%"
         />
       </div>
     </main>
