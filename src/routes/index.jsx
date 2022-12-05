@@ -53,7 +53,7 @@ export default component$(() => {
         onResolved={(page) => (
           <main>
             {/*   <pre>{JSON.stringify(page, null, 2)}</pre> */}
-            <CookieConsent consent={page.WebsiteId.ConfigId.CookieConsent} />
+
             <InhaltKopfbereich data={page.Components[1].fields} />
             <Image data={page.Components[0].fields} />
             <AngebotsWidget data={page.Components[2].fields} />
