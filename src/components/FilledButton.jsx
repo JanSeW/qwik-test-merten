@@ -1,12 +1,7 @@
+import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
-export default function FilledButton({
-  color,
-  text,
-  link,
-  external,
-  additionalCSS,
-}) {
+export default component$(({ color, text, link, external, additionalCSS }) => {
   return external ? (
     <a href={link} target={"blank"} rel="noreferrer">
       <button
@@ -40,4 +35,4 @@ export default function FilledButton({
       {text}
     </button>
   );
-}
+});

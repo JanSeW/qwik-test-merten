@@ -1,7 +1,8 @@
+import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import FilledButton from "./FilledButton";
 
-export default function InhaltsBlock({ data }) {
+export default component$(({ data }) => {
   return (
     <main class="main-padding vertical-padding flex flex-col md:flex-row flex-wrap justify-between bg-white overflow-hidden">
       <div class="w-full md:w-[47%] font-sec-regular flex flex-col justify-between">
@@ -160,4 +161,4 @@ export default function InhaltsBlock({ data }) {
       </div>
     </main>
   );
-}
+});

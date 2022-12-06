@@ -1,6 +1,7 @@
+import { component$ } from "@builder.io/qwik";
 import FilledButton from "./FilledButton";
 
-export default function Checkliste({ data }) {
+export default component$(({ data }) => {
   return (
     <div class="main-padding vertical-padding bg-lightGray relative overflow-hidden w-screen">
       <data.headline_0.type class="text-darkBlue head-text underline font-medium mb-12 xl:max-w-[50%]">
@@ -86,4 +87,4 @@ export default function Checkliste({ data }) {
       </main>
     </div>
   );
-}
+});

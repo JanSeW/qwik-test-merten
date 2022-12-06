@@ -1,4 +1,6 @@
-export default function Image({ data }) {
+import { component$ } from "@builder.io/qwik";
+
+export default component$(({ data }) => {
   return (
     <main class="w-screen bg-white relative h-[361px]">
       <div class="imageContainer w-full relative bg-white">
@@ -13,4 +15,4 @@ export default function Image({ data }) {
       </div>
     </main>
   );
-}
+});
