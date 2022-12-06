@@ -13,18 +13,6 @@ import CookieConsent from "~/components/CookieConsent";
 
 import { supabase } from "../utils/index";
 
-export const ComponentStore = {
-  Image: Image,
-  InhaltKopfbereich: InhaltKopfbereich,
-  AngebotsWidget: AngebotsWidget,
-  Bewertungen: Bewertungen,
-  Checkliste: Checkliste,
-  Footer: Footer,
-  InhaltsBlock: InhaltsBlock,
-  VideoWidget: VideoWidget,
-  CookieConsent: CookieConsent,
-};
-
 export const onGet = async () => {
   const { data } = await supabase
     .from("Pages")
@@ -32,18 +20,11 @@ export const onGet = async () => {
     .match({ WebsiteId: 9, URL: "/" })
     .single();
 
-  let pageAPI = data;
-  for (let i = 0; i < pageAPI.Components.length; i++) {
-    console.log(ComponentStore[pageAPI.Components[i].name]);
-    //pageAPI.Components[i].render = ComponentStore[pageAPI.Components[i].name];
-  }
-
-  return pageAPI;
+  return data;
 };
 
 export default component$(() => {
   const page = useEndpoint();
-
   return (
     <main>
       <Resource
@@ -52,7 +33,7 @@ export default component$(() => {
         onRejected={() => <div>Error</div>}
         onResolved={(page) => (
           <main>
-            {/*   <pre>{JSON.stringify(page, null, 2)}</pre> */}
+            {/*   <pre>{JSON.stringify(page.WebsiteId, null, 2)}</pre> */}
             {page.Components.map((Component, key) =>
               Component.name === "InhaltKopfbereich" ? (
                 <InhaltKopfbereich data={Component.fields} />
