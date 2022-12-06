@@ -11,7 +11,7 @@ export default function Button({
   return link && target === "self" ? (
     <Link href={link}>
       <button
-        className={className}
+        class={className}
         rel={follow}
         target={target}
         data-attr-key={cmsKey}
@@ -21,12 +21,12 @@ export default function Button({
     </Link>
   ) : (link && target === "_blank") || (link && target === "blank") ? (
     <a href={link} target="_blank" rel={"noreferrer"}>
-      <button data-attr-key={cmsKey} className={className}>
+      <button data-attr-key={cmsKey} class={className}>
         {content}
       </button>
     </a>
   ) : (
-    <button data-attr-key={cmsKey} className={className}>
+    <button data-attr-key={cmsKey} class={className}>
       {content}
     </button>
   );

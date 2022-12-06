@@ -12,7 +12,7 @@ export default function Input({
       name={name}
       value={value}
       onChange={onChange}
-      className={className}
+      class={className}
       placeholder={placeholder}
     />
   );

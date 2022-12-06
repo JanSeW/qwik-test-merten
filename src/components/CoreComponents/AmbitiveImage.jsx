@@ -20,7 +20,7 @@ export default function ImageAmbitive({
           objectFit="contain"
           blurDataURL={`/_next/image?url=` + src + `&w=16&q=1`}
           placeholder="blur"
-          className="image_ cursor-pointer"
+          class="image_ cursor-pointer"
           data-attr-key={cmsKey}
           priority={priority}
         />
@@ -30,7 +30,7 @@ export default function ImageAmbitive({
         href={link}
         rel={"noreferrer"}
         target="_blank"
-        className="block imageContainer w-full h-full"
+        class="block imageContainer w-full h-full"
       >
         <Image
           src={src}
@@ -39,7 +39,7 @@ export default function ImageAmbitive({
           objectFit="contain"
           blurDataURL={`/_next/image?url=` + src + `&w=16&q=1`}
           placeholder="blur"
-          className="image_ cursor-pointer"
+          class="image_ cursor-pointer"
           data-attr-key={cmsKey}
           priority={priority}
         />
@@ -53,7 +53,7 @@ export default function ImageAmbitive({
       objectFit="contain"
       blurDataURL={`/_next/image?url=` + src + `&w=16&q=1`}
       placeholder="blur"
-      className="image_"
+      class="image_"
       data-attr-key={cmsKey}
       priority={priority}
     />

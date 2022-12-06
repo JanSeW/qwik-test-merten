@@ -5,7 +5,7 @@ export default function Video({ src, className, cmsKey }) {
       width="500"
       height="315"
       data-attr-key={cmsKey}
-      className={className}
+      class={className}
       src={src}
     ></iframe> */
   );
