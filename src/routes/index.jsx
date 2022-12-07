@@ -6,17 +6,15 @@ import InhaltKopfbereich from "~/components/InhaltKopfbereich.jsx";
 import AngebotsWidget from "~/components/AngebotsWidget.jsx";
 import Bewertungen from "~/components/Bewertungen.jsx";
 import Checkliste from "~/components/Checkliste.jsx";
-import Footer from "~/components/Footer.jsx";
 import InhaltsBlock from "~/components/InhaltsBlock.jsx";
 import VideoWidget from "~/components/VideoWidget.jsx";
-import CookieConsent from "~/components/CookieConsent";
 
 import { supabase } from "../utils/index";
 
 export const onGet = async () => {
   const { data } = await supabase
     .from("Pages")
-    .select(`*,WebsiteId(ConfigId(*))`)
+    .select(`*,WebsiteId(ConfigId(*, CompanyId(*)))`)
     .match({ WebsiteId: 9, URL: "/" })
     .single();
 

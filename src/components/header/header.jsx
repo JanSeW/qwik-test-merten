@@ -10,9 +10,6 @@ import {
 } from "qwik-feather-icons";
 import OutlineButton from "../Elements/OutlineButton";
 
-/* 
-import { useRouter } from "next/router";
-*/
 export const onGet = async () => {
   const { data } = await supabase
     .from("Pages")
@@ -28,7 +25,7 @@ export default component$(() => {
   const router = useLocation();
   let toggle = useSignal(false);
   let activeStep = useSignal(0);
-  let activePage = useStore({});
+  let activePage = useStore({ title: "", href: "", children: "" });
 
   return (
     <Resource
@@ -38,7 +35,8 @@ export default component$(() => {
       onResolved={(nav) => (
         <>
           {/*  <pre>{JSON.stringify(nav, null, 2)}</pre> */}
-          <nav class="flex xl:flex-col flex-col-reverse w-screen bg-darkBlue sticky top-0 font-sec-regular text-white z-50">
+
+          <div class="flex xl:flex-col flex-col-reverse w-screen overflow-x-clip  bg-darkBlue sticky top-0 font-sec-regular text-white z-50">
             <div class="bg-darkBlue z-40 w-full py-3 main-padding flex flex-row items-center justify-between">
               <div class="flex flex-row items-center gap-x-3">
                 <a
@@ -81,6 +79,7 @@ export default component$(() => {
                 </a>
               </div>
             </div>
+
             <div class="bg-white w-full flex flex-row items-center main-padding justify-between py-5 shadow-md">
               <Link href={"/"}>
                 <div class="imageContainer bg-white relative w-[280px]  xl:w-[300px] cursor-pointer z-30">
@@ -101,7 +100,7 @@ export default component$(() => {
                 {nav.WebsiteId.ConfigId.Navigation.map((page, key) => (
                   <div key={key} class="flex flex-col relative parent-item-nav">
                     <Link href={page.URL}>
-                      <a class="h-full flex flex-row items-center gap-x-2 relative z-10">
+                      <span class="h-full flex flex-row items-center gap-x-2 relative z-10">
                         <span
                           class={` font-sec-regular cursor-pointer hover:text-green font-bold text-darkBlue uppercase
                       ${
@@ -120,7 +119,7 @@ export default component$(() => {
                         {key < 8 && (
                           <div class="h-[15px] bg-darkBlue w-[1px]" />
                         )}
-                      </a>
+                      </span>
                     </Link>
                     {page.children && (
                       <div
@@ -133,7 +132,7 @@ export default component$(() => {
                               key < page.children.length / 2 && (
                                 <div key={key}>
                                   <Link href={child.URL}>
-                                    <a
+                                    <span
                                       class={`h-full flex flex-row items-center px-4 py-1 w-full link-drop ${
                                         !(
                                           key + 1 ===
@@ -152,7 +151,7 @@ export default component$(() => {
                                         <ChevronRightIcon class="inline mr-3 relative top-[-2px]" />
                                         {child.Title}
                                       </span>
-                                    </a>
+                                    </span>
                                   </Link>
                                 </div>
                               )
@@ -164,7 +163,7 @@ export default component$(() => {
                               key > page.children.length / 2 - 1 && (
                                 <div key={key}>
                                   <Link href={child.URL}>
-                                    <a
+                                    <span
                                       class={`h-full a flex flex-row items-center px-4 py-1 w-full link-drop ${
                                         !(key + 1 === page.children.length) &&
                                         "border-b"
@@ -181,7 +180,7 @@ export default component$(() => {
                                         <ChevronRightIcon class="inline mr-3 relative top-[-2px]" />
                                         {child.Title}
                                       </span>
-                                    </a>
+                                    </span>
                                   </Link>
                                 </div>
                               )
@@ -209,49 +208,43 @@ export default component$(() => {
                 <div key={key}>
                   {!(page.children && page.children.length) ? (
                     <Link href={page.URL}>
-                      <a
-                        class={`h-full flex flex-row items-center gap-x-3 ${
-                          toggle && "pointer-events-auto"
-                        }`}
+                      <span
                         onClick$={() => (toggle.value = false)}
-                      >
-                        <span
-                          class={` font-sec-regular cursor-pointer hover:text-green font-bold text-darkBlue uppercase
+                        class={` font-sec-regular cursor-pointer hover:text-green font-bold text-darkBlue uppercase ${
+                          toggle.value && "pointer-events-auto"
+                        }
                       ${
                         router.pathname === page.URL
                           ? "text-green"
                           : "text-darkBlue"
                       }`}
-                        >
-                          {page.title}
-                        </span>
-                      </a>
+                      >
+                        {page.Title}
+                      </span>
                     </Link>
                   ) : (
-                    <p
-                      class={`h-full flex flex-row items-center gap-x-3 ${
-                        toggle && "pointer-events-auto"
-                      }`}
-                      onClick$={() => {
-                        activePage.value = {
-                          href: page.URL,
-                          title: page.Title,
-                          children: page.children,
-                        };
-                        activeStep.value = 1;
-                      }}
-                    >
+                    <span>
                       <span
-                        class={` font-sec-regular cursor-pointer hover:text-green font-bold text-darkBlue uppercase
+                        onClick$={() => {
+                          activePage.value = {
+                            href: page.URL,
+                            title: page.Title,
+                            children: page.children,
+                          };
+                          activeStep.value = 1;
+                        }}
+                        class={` font-sec-regular cursor-pointer hover:text-green font-bold text-darkBlue uppercase ${
+                          toggle.value && "pointer-events-auto"
+                        }
                       ${
                         router.pathname === page.URL
                           ? "text-green"
                           : "text-darkBlue"
                       }`}
                       >
-                        {page.title}
+                        {page.Title}
                       </span>
-                    </p>
+                    </span>
                   )}
                 </div>
               ))}
@@ -311,43 +304,47 @@ export default component$(() => {
               </div>
             </div>
             <div
-              class={`bg-white hidden  h-screen pt-[160px] px-10 w-screen absolute text-darkBlue  top-0 z-20  xl:hidden
-          ${activeStep === 1 ? "left-0" : "left-[100vw]"} ${
+              class={`bg-white h-screen pt-[160px] px-10 w-screen absolute text-darkBlue duration-200 top-0 z-20  xl:hidden
+              ${activeStep.value === 1 ? "left-0" : "left-[100vw]"} ${
                 toggle.value ? "opacity-100" : "opacity-0"
-              }
-                    `}
+              }`}
             >
+              {/* <p>{JSON.stringify(activePage)}</p> */}
               <div class="h-full pb-10 flex flex-col justify-center items-start">
-                {activePage.URL && (
+                {activePage.value && activePage.value.href && (
                   <>
-                    <span
+                    <div
                       class="mb-2"
                       onClick$={() => {
-                        activePage.value = {};
+                        activePage.value = {
+                          title: "",
+                          href: "",
+                          children: "",
+                        };
                         activeStep.value = 0;
                       }}
                     >
                       <ChevronRightIcon class="inline mr-2 -rotate-180 relative top-[-1px]" />
                       Zurück
-                    </span>
-                    <Link href={activePage.URL}>
+                    </div>
+                    <Link href={activePage.value.href}>
                       <p
                         class="font-semibold mb-5 border-b-2 border-darkBlue pb-1 w-full"
                         onClick$={() => (toggle.value = false)}
                       >
-                        {activePage.title}
+                        {activePage.value.title}
                       </p>
                     </Link>
                     <div class="h-full overflow-scroll flex flex-col">
-                      {activePage.children.map((child, key) => (
+                      {activePage.value.children.map((child, key) => (
                         <Link href={child.URL} key={key}>
-                          <span
-                            class="border-b border-darkGray py-1 w-full whitespace-nowrap"
+                          <div
+                            class="border-b border-darkGray py-1 w-full  line-clamp-1 max-w-[80vw]"
                             onClick$={() => (toggle.value = false)}
                           >
                             <ChevronRightIcon class={"inline mr-3"} />
                             {child.Title}
-                          </span>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -355,7 +352,7 @@ export default component$(() => {
                 )}
               </div>
             </div>
-          </nav>
+          </div>
         </>
       )}
     />
