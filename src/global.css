@@ -245,6 +245,10 @@ input[type="number"]::-webkit-outer-spin-button {
   color: var(--green);
 }
 
+.header-image {
+  display: none;
+}
+
 @layer utilities {
   @media only screen and (max-width: 768px) and (min-height: 690px) {
   }
@@ -253,6 +257,12 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   @media only screen and (min-width: 768px) {
+    .header-image {
+      display: block !important;
+    }
+    .header-image-mobile {
+      display: none;
+    }
     .main-padding {
       padding-left: 2.5rem !important;
       padding-right: 2.5rem !important;

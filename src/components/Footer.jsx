@@ -7,7 +7,7 @@ export default component$(() => {
   return (
     <Resource
       value={footer}
-      onPending={() => <div>Loading...</div>}
+      onPending={() => <></>}
       onRejected={() => <div>Error</div>}
       onResolved={(footer) =>
         footer && (

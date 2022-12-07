@@ -7,7 +7,7 @@ import AngebotsWidget from "~/components/AngebotsWidget.jsx";
 import Bewertungen from "~/components/Bewertungen.jsx";
 import Checkliste from "~/components/Checkliste.jsx";
 import InhaltsBlock from "~/components/InhaltsBlock.jsx";
-import VideoWidget from "~/components/VideoWidget.jsx";
+//import VideoWidget from "~/components/VideoWidget.jsx";
 
 import { supabase } from "../../utils/index";
 
@@ -37,23 +37,22 @@ export default component$(() => {
             {/*   <pre>{JSON.stringify(page, null, 2)}</pre> */}
             {page &&
               page.Components.length > 0 &&
-              page.Components.map((Component, key) =>
-                Component.name === "InhaltKopfbereich" ? (
+              page.Components.map((Component, key) => (
+                <section key={key}>
+                  Component.name === "InhaltKopfbereich" ? (
                   <InhaltKopfbereich data={Component.fields} />
-                ) : Component.name === "Image" ? (
+                  ) : Component.name === "Image" ? (
                   <Image data={Component.fields} />
-                ) : Component.name === "AngebotsWidget" ? (
+                  ) : Component.name === "AngebotsWidget" ? (
                   <AngebotsWidget data={Component.fields} />
-                ) : Component.name === "InhaltsBlock" ? (
+                  ) : Component.name === "InhaltsBlock" ? (
                   <InhaltsBlock data={Component.fields} />
-                ) : Component.name === "Checkliste" ? (
+                  ) : Component.name === "Checkliste" ? (
                   <Checkliste data={Component.fields} />
-                ) : Component.name === "Bewertungen" ? (
-                  <Bewertungen data={Component.fields} />
-                ) : (
-                  <></>
-                )
-              )}
+                  ) : Component.name === "Bewertungen" ? (
+                  <Bewertungen data={Component.fields} />) : (<></>)
+                </section>
+              ))}
           </main>
         )}
       />

@@ -30,7 +30,7 @@ export default component$(() => {
   return (
     <Resource
       value={navigation}
-      onPending={() => <div>Loading...</div>}
+      onPending={() => <></>}
       onRejected={() => <div>Error</div>}
       onResolved={(nav) =>
         nav && (
@@ -361,20 +361,4 @@ export default component$(() => {
       }
     />
   );
-
-  //const [activeStep, setActiveStep] = useState(0);
-  //const [activePage, setActivePage] = useState(false);
-  //const router = useRouter();
-
-  /* const disableScroll = function () {
-    if (toggle) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "scroll";
-    }
-  }; */
-
-  /* useEffect(() => {
-    disableScroll();
-  }, [toggle]); */
 });
